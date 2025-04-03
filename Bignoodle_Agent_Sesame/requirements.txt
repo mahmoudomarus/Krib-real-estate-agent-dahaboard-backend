@@ -1,0 +1,87 @@
+# Core Libraries
+# torch==<version_compatible_with_cuda> --extra-index-url https://download.pytorch.org/whl/<cuda_version_tag>
+# torchaudio==<version>
+torch --extra-index-url https://download.pytorch.org/whl/cu121 # ADJUST CUDA VERSION (cu118, cu121, etc.) AS NEEDED!
+torchaudio --extra-index-url https://download.pytorch.org/whl/cu121 # ADJUST CUDA VERSION!
+
+# Audio Handling
+sounddevice
+numpy
+# pyaudio # Alternative/optional
+
+# LLM Inference Engine (Choose ONE section)
+# Option 1: vLLM
+# vllm
+
+# Option 2: llama-cpp-python (Requires compilation with CUDA flags)
+# llama-cpp-python
+
+# Option 3: Hugging Face Transformers
+transformers>=4.38 # Or later version
+accelerate
+bitsandbytes # For 4/8-bit quantization
+sentencepiece # Common tokenizer requirement
+
+# VAD
+silero-vad
+# webrtcvad-wheels # Alternative
+
+# Configuration
+PyYAML # For loading config files
+python-dotenv # For loading .env files
+
+# Logging
+# logging # Built-in
+
+# Sesame AI Labs Tools (Install manually from cloned repos)
+# whisperx (See repo for instructions)
+# faster-whisper (See repo for instructions)
+# moshi (See repo for instructions)
+# gpt-fast (See repo for instructions)
+
+# Utilities
+tqdm # Progress bars 
+
+# --- Hugging Face Hub ---
+huggingface-hub >= 0.20.0 # For model downloads & potentially CSM interaction
+
+# --- STT --- 
+faster-whisper # Requires CTranslate2 backend, often bundled or installed separately if needed
+# If build issues: pip install ctranslate2 -U # May need specific version
+
+# --- LLM Engine --- 
+vllm # Preferred engine for optimized inference
+# sentencepiece # Often a dependency for tokenizers, install if needed by LLM/vLLM
+
+# --- RAG (Langchain + FAISS GPU) --- 
+langchain >= 0.1.0
+langchain-community # Common loaders, stores etc.
+langchain-huggingface # For HF embeddings if used
+# Vector Store - FAISS for GPU acceleration
+faiss-gpu # Recommended for CUDA systems
+# OR use faiss-cpu if GPU issues/preference
+# faiss-cpu 
+# OR use ChromaDB
+# chromadb
+# Document Loaders (add more as needed)
+pypdf # For PDFs
+# python-docx # For .docx
+# unstructured # For complex/varied document types
+# Embeddings (using HF sentence-transformers)
+sentence-transformers
+
+# --- GUI (Example: CustomTkinter) --- 
+# customtkinter # Uncomment if using CustomTkinter for GUI
+# Pillow # Often needed for images in GUI
+
+# --- Sesame CSM Dependencies --- 
+# NOTE: Key dependencies like torch, transformers, etc., should align with
+# requirements specified in external/csm/requirements.txt.
+# Manually check external/csm/requirements.txt and add any MISSING dependencies here,
+# or ensure versions above are compatible.
+# Examples of potential CSM requirements (VERIFY IN external/csm/requirements.txt):
+# transformers>=4.38 # Check CSM's required version
+# accelerate
+# bitsandbytes # If CSM uses quantization
+# einops
+# xformers # If used by CSM or its dependencies 
