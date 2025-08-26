@@ -1,0 +1,47 @@
+services:
+  - type: web
+    name: krib-ai-backend
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
+      - key: SUPABASE_URL
+        fromSecret: true
+      - key: SUPABASE_ANON_KEY
+        fromSecret: true
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        fromSecret: true
+      - key: AWS_ACCESS_KEY_ID
+        fromSecret: true
+      - key: AWS_SECRET_ACCESS_KEY
+        fromSecret: true
+      - key: AWS_REGION
+        value: "us-east-1"
+      - key: S3_BUCKET_NAME
+        value: "krib_host"
+      - key: S3_ENDPOINT_URL
+        value: "https://bpomacnqaqzgeuahhlka.storage.supabase.co/storage/v1/s3"
+      - key: OPENAI_API_KEY
+        fromSecret: true
+      - key: ANTHROPIC_API_KEY
+        fromSecret: true
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: REDIS_URL
+        fromSecret: true
+      - key: UPSTASH_REDIS_REST_URL
+        fromSecret: true
+      - key: UPSTASH_REDIS_REST_TOKEN
+        fromSecret: true
+      - key: SENTRY_DSN
+        fromSecret: true
+      - key: ENABLE_METRICS
+        value: "True"
+      - key: ENABLE_RATE_LIMITING
+        value: "True"

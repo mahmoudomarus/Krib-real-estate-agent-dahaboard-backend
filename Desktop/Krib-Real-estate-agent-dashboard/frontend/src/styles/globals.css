@@ -1,0 +1,806 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 14px;
+  
+  /* Krib Brand Colors */
+  --krib-lime: #B8FF00;
+  --krib-lime-light: #CBFC50;
+  --krib-lime-soft: rgba(184, 255, 0, 0.1);
+  --krib-lime-medium: rgba(184, 255, 0, 0.15);
+  --krib-black: #111111;
+  --krib-gray-light: #F8F9FA;
+  --krib-gray-medium: #F5F6F8;
+  --krib-gray-dark: #2D3748;
+  
+  /* Base Colors */
+  --background: #ffffff;
+  --foreground: var(--krib-gray-dark);
+  --card: #ffffff;
+  --card-foreground: var(--krib-gray-dark);
+  --popover: #ffffff;
+  --popover-foreground: var(--krib-gray-dark);
+  
+  /* Primary Colors - Krib Lime */
+  --primary: var(--krib-lime);
+  --primary-foreground: var(--krib-black);
+  --secondary: var(--krib-gray-light);
+  --secondary-foreground: var(--krib-gray-dark);
+  
+  /* UI Elements */
+  --muted: var(--krib-gray-light);
+  --muted-foreground: #717182;
+  --accent: var(--krib-lime-soft);
+  --accent-foreground: var(--krib-gray-dark);
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.08);
+  --input: var(--krib-gray-light);
+  --input-background: var(--krib-gray-light);
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: var(--krib-lime);
+  
+  /* Charts - Krib Brand Palette */
+  --chart-1: var(--krib-lime);
+  --chart-2: var(--krib-lime-light);
+  --chart-3: #FFE135;
+  --chart-4: #87CEEB;
+  --chart-5: #98FB98;
+  
+  --radius: 0.625rem;
+  
+  /* Sidebar - Light Gray Theme */
+  --sidebar: var(--krib-gray-light);
+  --sidebar-foreground: var(--krib-gray-dark);
+  --sidebar-primary: var(--krib-lime);
+  --sidebar-primary-foreground: var(--krib-black);
+  --sidebar-accent: var(--krib-lime-soft);
+  --sidebar-accent-foreground: var(--krib-gray-dark);
+  --sidebar-border: rgba(184, 255, 0, 0.2);
+  --sidebar-ring: var(--krib-lime);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+/* Enhanced Design Improvements */
+@layer components {
+  /* Fix dropdown transparency and add shadows */
+  [data-radix-popper-content-wrapper] {
+    z-index: 50;
+  }
+  
+  [role="menu"],
+  [role="listbox"],
+  [data-radix-select-content],
+  [data-radix-dropdown-menu-content],
+  [data-radix-popover-content] {
+    background: white !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+    backdrop-filter: blur(8px);
+    z-index: 50;
+  }
+  
+  /* Enhanced card shadows - subtle as per design system */
+  .card, [data-card] {
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius) !important;
+    background: var(--card) !important;
+  }
+  
+  /* Elevated cards for important content */
+  .card-elevated {
+    border: 1px solid var(--border) !important;
+    border-radius: calc(var(--radius) + 4px) !important;
+    background: var(--card) !important;
+  }
+  
+  /* Button enhancements - minimal per design system */
+  .btn-shadow, button {
+    transition: all 0.2s ease !important;
+    border-radius: calc(var(--radius) - 4px) !important;
+  }
+  
+  .btn-shadow:hover, button:hover {
+    /* Subtle hover effect only */
+  }
+  
+  /* Primary button styling */
+  button[data-variant="default"], .btn-primary {
+    background: var(--primary) !important;
+    color: var(--primary-foreground) !important;
+    border: none !important;
+  }
+  
+  button[data-variant="default"]:hover, .btn-primary:hover {
+    background: color-mix(in srgb, var(--primary) 90%, black) !important;
+  }
+  
+  /* Input field enhancements */
+  .input-enhanced, input, textarea, select {
+    background: var(--input) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: calc(var(--radius) - 4px) !important;
+    transition: all 0.2s ease !important;
+  }
+  
+  .input-enhanced:focus, input:focus, textarea:focus, select:focus {
+    border-color: var(--primary) !important;
+    background: var(--background) !important;
+    outline: 2px solid transparent !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--ring) 20%, transparent) !important;
+  }
+  
+  /* Sidebar active state fix */
+  .sidebar-menu-button[data-active="true"] {
+    background-color: var(--sidebar-accent) !important;
+    color: var(--sidebar-accent-foreground) !important;
+    font-weight: 500;
+  }
+  
+  /* Property card enhancements */
+  .property-card {
+    transition: all 0.3s ease !important;
+    border: 1px solid var(--border) !important;
+    max-width: 300px !important;
+    margin: 0 auto !important;
+    border-radius: var(--radius) !important;
+    overflow: hidden !important;
+    height: fit-content !important;
+    background: var(--card) !important;
+  }
+  
+  .property-card:hover {
+    transform: translateY(-2px) !important;
+    /* Minimal shadow for depth - per design system */
+  }
+  
+  /* Compact property card styling - using p-6 system spacing */
+  .property-card .card-header {
+    padding: 16px !important;
+    padding-bottom: 8px !important;
+  }
+  
+  .property-card .card-content {
+    padding: 0 16px 16px 16px !important;
+  }
+  
+  /* Property card image styling */
+  .property-card img {
+    transition: transform 0.3s ease !important;
+  }
+  
+  .property-card:hover img {
+    /* Minimal hover effect */
+  }
+  
+  /* Frame and border enhancements */
+  .border, [class*="border"] {
+    border-color: var(--border) !important;
+  }
+  
+  /* Sidebar enhancements */
+  .sidebar {
+    border-right: 1px solid var(--sidebar-border) !important;
+  }
+  
+  /* Form section shadows */
+  .form-section {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Analytics cards */
+  .analytics-card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+  }
+  
+  .analytics-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+/* =============================================== */
+/* KRIB DESIGN SYSTEM - CLEAN & METHODICAL       */
+/* =============================================== */
+
+/* Krib Paint Splash Background - Artistic & Beautiful */
+.krib-paint-splash-background {
+  background: 
+    /* Main white background */
+    #ffffff,
+    /* Large lime splash - top right */
+    radial-gradient(ellipse 500px 400px at 85% 15%, rgba(184, 255, 0, 0.15) 0%, rgba(184, 255, 0, 0.08) 30%, transparent 60%),
+    /* Medium black splash - bottom left */
+    radial-gradient(ellipse 450px 350px at 10% 80%, rgba(17, 17, 17, 0.08) 0%, rgba(17, 17, 17, 0.04) 40%, transparent 70%),
+    /* Small lime splash - center right */
+    radial-gradient(ellipse 300px 250px at 90% 50%, rgba(203, 252, 80, 0.12) 0%, rgba(203, 252, 80, 0.06) 35%, transparent 75%),
+    /* Black accent - top left */
+    radial-gradient(ellipse 200px 180px at 5% 20%, rgba(17, 17, 17, 0.06) 0%, rgba(17, 17, 17, 0.03) 45%, transparent 85%),
+    /* Medium lime splash - bottom center */
+    radial-gradient(ellipse 400px 300px at 60% 90%, rgba(184, 255, 0, 0.1) 0%, rgba(184, 255, 0, 0.05) 40%, transparent 70%),
+    /* Additional center accent */
+    radial-gradient(ellipse 250px 200px at 45% 35%, rgba(203, 252, 80, 0.04) 0%, transparent 80%);
+  background-size: 
+    100% 100%,
+    800px 600px,
+    700px 500px,
+    400px 350px,
+    300px 250px,
+    600px 450px,
+    350px 300px;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
+/* Clean Dashboard Background - Subtle and Professional */
+.krib-dashboard-background {
+  background: 
+    /* Clean white base */
+    #fafbfc,
+    /* Very subtle geometric pattern */
+    repeating-linear-gradient(
+      45deg,
+      transparent 0%,
+      transparent 98%,
+      rgba(184, 255, 0, 0.008) 98%,
+      rgba(184, 255, 0, 0.008) 100%
+    );
+  background-size: 120px 120px;
+  background-repeat: repeat;
+}
+
+/* Alternative cleaner stripe background for pages that need subtlety */
+.krib-stripe-background {
+  background-image: 
+    linear-gradient(
+      45deg,
+      transparent 0%,
+      transparent 90%,
+      rgba(184, 255, 0, 0.02) 90%,
+      rgba(184, 255, 0, 0.02) 100%
+    );
+  background-size: 80px 80px;
+  background-repeat: repeat;
+}
+
+/* Krib Accent Elements */
+.krib-accent-border {
+  border-left: 3px solid var(--krib-lime) !important;
+}
+
+.krib-glow {
+  box-shadow: 0 0 20px rgba(184, 255, 0, 0.08) !important;
+}
+
+.krib-glow-hover:hover {
+  box-shadow: 0 0 25px rgba(184, 255, 0, 0.12) !important;
+  transform: translateY(-1px);
+  transition: all 0.3s ease;
+}
+
+/* Krib Button System */
+.krib-button-primary {
+  background: linear-gradient(135deg, var(--krib-lime) 0%, var(--krib-lime-light) 100%) !important;
+  color: var(--krib-black) !important;
+  border: none !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+.krib-button-primary:hover {
+  background: linear-gradient(135deg, var(--krib-lime-light) 0%, var(--krib-lime) 100%) !important;
+  box-shadow: 0 4px 15px rgba(184, 255, 0, 0.25) !important;
+  transform: translateY(-2px);
+}
+
+/* Krib Card System */
+.krib-card {
+  background: white !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  border-bottom: 3px solid var(--krib-lime) !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06) !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.krib-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 0 25px rgba(184, 255, 0, 0.12) !important;
+  border-bottom-color: var(--krib-lime-light) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Krib Sidebar System - Enhanced Beauty */
+.krib-sidebar {
+  background: linear-gradient(180deg, #FAFBFC 0%, #F5F6F8 100%) !important;
+  border-right: 1px solid rgba(184, 255, 0, 0.1) !important;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.03) !important;
+}
+
+.krib-sidebar-header {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(10px) !important;
+  border-bottom: 1px solid rgba(184, 255, 0, 0.15) !important;
+  margin-bottom: 8px !important;
+}
+
+.krib-logo-container {
+  background: linear-gradient(135deg, rgba(184, 255, 0, 0.1) 0%, rgba(203, 252, 80, 0.05) 100%) !important;
+  border: 1px solid rgba(184, 255, 0, 0.2) !important;
+  box-shadow: 0 2px 8px rgba(184, 255, 0, 0.1) !important;
+}
+
+.krib-sidebar-active {
+  background: linear-gradient(135deg, var(--krib-lime-soft) 0%, rgba(203, 252, 80, 0.12) 100%) !important;
+  border-right: 3px solid var(--krib-lime) !important;
+  color: var(--krib-black) !important;
+  font-weight: 600 !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 2px 4px rgba(184, 255, 0, 0.1) !important;
+  transform: translateX(2px) !important;
+  margin-right: -2px !important;
+}
+
+.krib-sidebar-active svg {
+  color: var(--krib-lime) !important;
+  filter: drop-shadow(0 1px 2px rgba(184, 255, 0, 0.3)) !important;
+}
+
+.krib-sidebar-item {
+  margin: 2px 6px !important;
+  border-radius: 8px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border: 1px solid transparent !important;
+}
+
+.krib-sidebar-item:hover {
+  background: linear-gradient(135deg, rgba(184, 255, 0, 0.08) 0%, rgba(203, 252, 80, 0.04) 100%) !important;
+  color: var(--krib-gray-dark) !important;
+  border-color: rgba(184, 255, 0, 0.2) !important;
+  transform: translateX(1px) !important;
+  box-shadow: 0 2px 8px rgba(184, 255, 0, 0.05) !important;
+}
+
+.krib-sidebar-group-label {
+  color: var(--krib-gray-dark) !important;
+  font-weight: 600 !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  margin: 16px 12px 8px 12px !important;
+  opacity: 0.7 !important;
+}
+
+/* Krib Progress & Loading */
+.krib-progress {
+  background: var(--krib-lime) !important;
+}
+
+.krib-loading {
+  color: var(--krib-lime) !important;
+}
+
+/* Additional Sidebar Beauty Enhancements */
+.krib-sidebar-menu {
+  padding: 8px 0 !important;
+}
+
+.krib-sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(184, 255, 0, 0.3) 50%, transparent 100%);
+  z-index: 1;
+}
+
+/* Elegant separator between navigation groups */
+.krib-sidebar-separator {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(184, 255, 0, 0.1) 20%, rgba(184, 255, 0, 0.1) 80%, transparent 100%);
+  margin: 12px 16px;
+}
+
+/* Enhanced menu item icons */
+.krib-sidebar-item svg {
+  transition: all 0.3s ease !important;
+}
+
+.krib-sidebar-item:hover svg {
+  transform: scale(1.1) !important;
+  color: var(--krib-lime) !important;
+}
+
+/* Subtle animation for active state */
+@keyframes krib-sidebar-active-pulse {
+  0% { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 2px 4px rgba(184, 255, 0, 0.1); }
+  50% { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 2px 8px rgba(184, 255, 0, 0.15); }
+  100% { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 2px 4px rgba(184, 255, 0, 0.1); }
+}
+
+.krib-sidebar-active {
+  animation: krib-sidebar-active-pulse 3s ease-in-out infinite !important;
+}
+}
+
+/* Paint Splash Background */
+.krib-paint-splash-background {
+  background: 
+    /* Lime green paint splashes */
+    radial-gradient(circle at 15% 25%, rgba(184, 255, 0, 0.06) 0%, transparent 45%),
+    radial-gradient(circle at 75% 15%, rgba(203, 252, 80, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 85% 65%, rgba(184, 255, 0, 0.10) 0%, transparent 55%),
+    radial-gradient(circle at 25% 80%, rgba(203, 252, 80, 0.12) 0%, transparent 60%),
+    
+    /* Black paint splashes */
+    radial-gradient(circle at 60% 35%, rgba(17, 17, 17, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 40% 75%, rgba(17, 17, 17, 0.06) 0%, transparent 45%),
+    radial-gradient(circle at 90% 85%, rgba(17, 17, 17, 0.10) 0%, transparent 50%),
+    radial-gradient(circle at 10% 60%, rgba(17, 17, 17, 0.15) 0%, transparent 35%),
+    
+    /* Additional lime splashes for richness */
+    radial-gradient(ellipse 600px 400px at 20% 10%, rgba(184, 255, 0, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 800px 600px at 80% 90%, rgba(203, 252, 80, 0.06) 0%, transparent 75%),
+    
+    /* Subtle diagonal stripes */
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 100px,
+      rgba(184, 255, 0, 0.01) 100px,
+      rgba(184, 255, 0, 0.01) 102px
+    );
+  
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, repeat;
+  background-attachment: scroll;
+}
+
+/* Enhanced Auth Background with Realistic Ink Splashes */
+.krib-auth-real-estate-background {
+  background: 
+    /* Subtle base gradients */
+    radial-gradient(circle at 15% 25%, rgba(184, 255, 0, 0.03) 0%, transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(17, 17, 17, 0.04) 0%, transparent 50%);
+  
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  position: relative;
+}
+
+/* Realistic Ink Splashes using CSS clip-path */
+.krib-auth-real-estate-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Large organic ink splash - top right */
+.krib-auth-real-estate-background::after {
+  content: '';
+  position: absolute;
+  top: 15%;
+  right: 10%;
+  width: 120px;
+  height: 80px;
+  background-color: var(--krib-lime);
+  opacity: 0.06;
+  transform: rotate(-25deg);
+  clip-path: polygon(20% 5%, 75% 0%, 90% 25%, 95% 60%, 85% 85%, 60% 95%, 25% 90%, 10% 70%, 5% 40%, 15% 15%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ink Splash Collection - Layered approach */
+.krib-auth-real-estate-background .ink-splash-1 {
+  position: absolute;
+  top: 25%;
+  left: 8%;
+  width: 160px;
+  height: 100px;
+  background-color: var(--krib-black);
+  opacity: 0.08;
+  transform: rotate(12deg);
+  clip-path: polygon(15% 5%, 75% 0%, 90% 30%, 85% 70%, 70% 90%, 30% 95%, 10% 65%, 5% 25%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Brush stroke extending from main splash */
+.krib-auth-real-estate-background .ink-splash-1::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: 15px;
+  width: 40px;
+  height: 8px;
+  background-color: var(--krib-black);
+  opacity: 0.7;
+  transform: rotate(30deg);
+  clip-path: polygon(0% 20%, 80% 0%, 100% 80%, 20% 100%);
+}
+
+/* Secondary brush stroke */
+.krib-auth-real-estate-background .ink-splash-1::after {
+  content: '';
+  position: absolute;
+  top: 25px;
+  right: -20px;
+  width: 56px;
+  height: 12px;
+  background-color: var(--krib-black);
+  opacity: 0.6;
+  transform: rotate(-20deg);
+  clip-path: polygon(0% 50%, 85% 0%, 100% 30%, 90% 100%, 15% 80%);
+}
+
+/* Medium lime splash - bottom right */
+.krib-auth-real-estate-background .ink-splash-2 {
+  position: absolute;
+  bottom: 30%;
+  right: 20%;
+  width: 80px;
+  height: 60px;
+  background-color: var(--krib-lime);
+  opacity: 0.1;
+  transform: rotate(45deg);
+  clip-path: polygon(25% 0%, 70% 15%, 95% 45%, 80% 75%, 50% 90%, 20% 85%, 5% 50%, 10% 20%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Small droplets scattered */
+.krib-auth-real-estate-background .ink-droplet-1 {
+  position: absolute;
+  top: 60%;
+  left: 15%;
+  width: 12px;
+  height: 8px;
+  background-color: var(--krib-lime);
+  opacity: 0.08;
+  transform: rotate(60deg);
+  clip-path: polygon(0% 30%, 80% 0%, 100% 70%, 20% 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.krib-auth-real-estate-background .ink-droplet-2 {
+  position: absolute;
+  bottom: 20%;
+  left: 30%;
+  width: 8px;
+  height: 8px;
+  background-color: var(--krib-black);
+  opacity: 0.06;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.krib-auth-real-estate-background .ink-droplet-3 {
+  position: absolute;
+  top: 40%;
+  right: 35%;
+  width: 16px;
+  height: 10px;
+  background-color: var(--krib-lime);
+  opacity: 0.07;
+  transform: rotate(-15deg);
+  clip-path: polygon(30% 0%, 70% 30%, 100% 70%, 70% 100%, 30% 70%, 0% 30%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Brush stroke - bottom left */
+.krib-auth-real-estate-background .ink-brush-1 {
+  position: absolute;
+  bottom: 25%;
+  left: 12%;
+  width: 96px;
+  height: 4px;
+  background-color: var(--krib-black);
+  opacity: 0.05;
+  transform: rotate(-12deg);
+  clip-path: polygon(0% 20%, 85% 0%, 100% 40%, 95% 80%, 15% 100%, 0% 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Fine splatter dots */
+.krib-auth-real-estate-background .ink-fine-1 {
+  position: absolute;
+  top: 35%;
+  left: 45%;
+  width: 2px;
+  height: 2px;
+  background-color: var(--krib-lime);
+  opacity: 0.04;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.krib-auth-real-estate-background .ink-fine-2 {
+  position: absolute;
+  top: 70%;
+  right: 40%;
+  width: 3px;
+  height: 3px;
+  background-color: var(--krib-black);
+  opacity: 0.05;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.krib-auth-real-estate-background .ink-fine-3 {
+  position: absolute;
+  bottom: 45%;
+  left: 55%;
+  width: 1px;
+  height: 1px;
+  background-color: var(--krib-lime);
+  opacity: 0.06;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}

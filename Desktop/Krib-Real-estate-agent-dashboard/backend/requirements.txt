@@ -1,0 +1,105 @@
+# FastAPI and web framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart>=0.0.6
+
+# Database and Supabase - compatible stable versions
+supabase==1.2.0
+postgrest>=0.10.8,<0.12.0
+gotrue>=1.2.0,<2.0.0
+
+# Supabase S3-compatible storage (using boto3 for S3 protocol)
+boto3>=1.34.0
+botocore>=1.34.0
+
+# AI Services
+openai>=1.3.0
+anthropic==0.3.11
+
+# Authentication and security
+python-jose[cryptography]>=3.3.0
+passlib[bcrypt]>=1.7.4
+
+# Environment and configuration
+python-dotenv>=1.0.0
+pydantic[email]>=2.5.0,<3.0.0
+pydantic-settings>=2.1.0
+email-validator>=2.1.0
+
+# HTTP clients and utilities - compatible with supabase 1.2.0 and anthropic
+httpx>=0.24.0
+aiofiles>=23.2.1
+
+# Data validation and serialization
+typing-extensions>=4.8.0
+
+# Logging and monitoring
+structlog>=23.2.0
+
+# Image processing
+Pillow>=10.1.0
+
+# SQLAlchemy for database ORM
+sqlalchemy>=2.0.0
+psycopg2-binary>=2.9.0
+
+# Redis for caching and sessions
+redis>=4.5.0,<5.0.0
+hiredis>=2.0.0
+
+# Background jobs and task queue
+celery>=5.2.0
+
+# Monitoring and observability
+prometheus-client>=0.17.0
+sentry-sdk[fastapi]>=1.30.0
+
+# Rate limiting
+slowapi>=0.1.8
+
+# === LONG-TERM RENTAL PLATFORM DEPENDENCIES ===
+
+# DocuSign Integration for lease agreements
+docusign-esign==3.20.0
+
+# Google Calendar Integration for viewing scheduling
+google-api-python-client==2.109.0
+google-auth-httplib2==0.1.1
+google-auth-oauthlib==1.1.0
+
+# PDF Generation for contracts and reports
+reportlab==4.0.4
+PyPDF2==3.0.1
+
+# Enhanced Email Templates
+jinja2==3.1.2
+
+# Document OCR and processing for tenant applications
+pytesseract==0.3.10
+
+# Phone Number Validation (UAE/International)
+phonenumbers==8.13.25
+
+# Enhanced validation utilities
+validators==0.22.0
+
+# Date/Time utilities for lease management
+python-dateutil==2.8.2
+
+# File type detection for document uploads
+python-magic==0.4.27
+
+# Currency handling for international transactions
+babel==2.13.1
+
+# Webhook signature verification for DocuSign/external APIs
+cryptography==41.0.7
+
+# UUID utilities for application numbering
+uuid==1.30
+
+# Calendar parsing and manipulation
+icalendar==5.0.11
+
+# Timezone handling for agent availability
+pytz==2023.3
